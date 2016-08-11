@@ -54,6 +54,7 @@ public class HomeController {
 
 	@RequestMapping("/insert")
 	public String inserData(@ModelAttribute User user) {
+		logger.info("Insert en el controlador");
 		if (user != null)
 			userService.insertData(user);
 		return "redirect:/getList";
@@ -116,7 +117,9 @@ public class HomeController {
 		String formattedDate = dateFormat.format(date);
 
 		model.addAttribute("serverTime", formattedDate);
-
+		
+		logger.info("Hola entrando a la aplicacion");
+		
 		return "home";
 	}
 

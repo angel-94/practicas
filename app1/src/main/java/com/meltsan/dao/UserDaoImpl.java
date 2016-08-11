@@ -43,17 +43,16 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public void updateData(User user) {
-		// TODO Auto-generated method stub
 		logger.info("Actualizamos a un usuario dao");
 		String sql = "UPDATE user set first_name = ?, last_name = ?, gender = ?, city = ? WHERE user_id = ?";
 		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
+		//Preparando el jdbc template para realizar la actuaizacion de los datos.
 		jdbcTemplate.update(sql, new Object[] { user.getFirstName(), user.getLastName(), user.getGender(),
 				user.getCity(), user.getUserId() });
 	}
 
 	@Override
 	public void deleteData(String id) {
-		// TODO Auto-generated method stub
 		logger.info("Eliminamos a un usuario dao");
 		String sql = "DELETE FROM user WHERE user_id = " + id;
 		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
@@ -62,7 +61,6 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public User getUser(String id) {
-		// TODO Auto-generated method stub
 		logger.info("Obtenemos un usuario por su id dao");
 		List<User> userList = new ArrayList<User>();
 		String sql = "SELECT * FROM user WHERE user_id= " + id;
