@@ -35,17 +35,17 @@ public class HomeController {
 
 	@RequestMapping("/register")
 	public ModelAndView registerUser(@ModelAttribute User user) {
-		
+		logger.info("aqui mustra el fromulario de registro");
 		List<String> genderList = new ArrayList<String>();
-		genderList.add("male");
-		genderList.add("female");
-		
+		genderList.add("Masculino");
+		genderList.add("Femenino");
+
 		List<String> cityList = new ArrayList<String>();
-		cityList.add("delhi");
-		cityList.add("gurgaon");
-		cityList.add("meerut");
-		cityList.add("noida");
-		
+		cityList.add("México");
+		cityList.add("Alemania");
+		cityList.add("Canada");
+		cityList.add("Francia");
+
 		Map<String, List> map = new HashMap<String, List>();
 		map.put("genderList", genderList);
 		map.put("cityList", cityList);
@@ -72,14 +72,14 @@ public class HomeController {
 		user = userService.getUser(id);
 
 		List<String> genderList = new ArrayList<String>();
-		genderList.add("male");
-		genderList.add("female");
+		genderList.add("Masculino");
+		genderList.add("Femenino");
 
 		List<String> cityList = new ArrayList<String>();
-		cityList.add("delhi");
-		cityList.add("gurgaon");
-		cityList.add("meerut");
-		cityList.add("noida");
+		cityList.add("México");
+		cityList.add("Alemania");
+		cityList.add("Canada");
+		cityList.add("Francia");
 
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("genderList", genderList);
@@ -110,16 +110,11 @@ public class HomeController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
 		logger.info("Welcome home! The client locale is {}.", locale);
-
 		Date date = new Date();
 		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-
 		String formattedDate = dateFormat.format(date);
-
 		model.addAttribute("serverTime", formattedDate);
-		
 		logger.info("Hola entrando a la aplicacion");
-		
 		return "home";
 	}
 

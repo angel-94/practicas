@@ -36,7 +36,7 @@ td {
 	<br />
 	<br />
 	<div>
-		<form:form method="post" action="/update" modelAttribute="user">
+		<form:form method="post" action="update" modelAttribute="user">
 			<table>
 				<tr>
 					<td>First Name :</td>

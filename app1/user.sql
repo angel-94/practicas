@@ -3,7 +3,7 @@ create database test;
 use test;
 
 create table user(
-	user_id int not null,
+	user_id int auto_increment not null,
     first_name varchar(50),
     last_name varchar(50),
     gener varchar(10),

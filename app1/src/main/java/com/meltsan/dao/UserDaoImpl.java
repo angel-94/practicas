@@ -9,26 +9,27 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+//import org.springframework.stereotype.Repository;
 
 import com.meltsan.controller.HomeController;
 import com.meltsan.domain.User;
 import com.meltsan.jdbc.UserRowMapper;
 
+//@Repository
 public class UserDaoImpl implements UserDao {
 
 	@Autowired
 	DataSource dataSource;
-	
+
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
-	
+
 	@Override
 	public void insertData(User user) {
 		logger.info("Insertamos un usuario dao");
-		String query = "INSERT INTO user (first_name, last_name, gender, city) VALUES(?, ?, ?, ?);";
+		String query = "INSERT INTO user (first_name, last_name, gener, city) VALUES(?, ?, ?, ?);";
 		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
 		jdbcTemplate.update(query,
 				new Object[] { user.getFirstName(), user.getLastName(), user.getGender(), user.getCity() });
-
 	}
 
 	@Override
@@ -43,10 +44,11 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public void updateData(User user) {
-		logger.info("Actualizamos a un usuario dao");
-		String sql = "UPDATE user set first_name = ?, last_name = ?, gender = ?, city = ? WHERE user_id = ?";
+		logger.info("Actualizamos a sun usuario dao");
+		String sql = "UPDATE user set first_name = ?, last_name = ?, gener = ?, city = ? WHERE user_id = ?";
 		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
-		//Preparando el jdbc template para realizar la actuaizacion de los datos.
+		// Preparando el jdbc template para realizar la actuaizacion de los
+		// datos.
 		jdbcTemplate.update(sql, new Object[] { user.getFirstName(), user.getLastName(), user.getGender(),
 				user.getCity(), user.getUserId() });
 	}
