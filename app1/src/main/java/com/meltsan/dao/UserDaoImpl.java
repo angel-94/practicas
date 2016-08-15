@@ -56,7 +56,7 @@ public class UserDaoImpl implements UserDao {
 	@Override
 	public void deleteData(String id) {
 		logger.info("Eliminamos a un usuario dao");
-		String sql = "DELETE FROM user WHERE user_id = " + id;
+		String sql = "DELETE FROM user WHERE user_id = ".concat(id);
 		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
 		jdbcTemplate.update(sql);
 	}

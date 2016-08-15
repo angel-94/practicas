@@ -1,9 +1,7 @@
-drop database if exists test;
-create database test;
-use test;
+Use world;
 
 create table user(
-	user_id int auto_increment not null,
+	user_id int not null,
     first_name varchar(50),
     last_name varchar(50),
     gener varchar(10),
@@ -11,11 +9,15 @@ create table user(
     primary key(user_id)
 );
 
-insert into user values  
-	(906, 'Ankush', 'Thakur', 'male', 'gurgaon'),
-	(907, 'Anamika', 'Singh', 'female', 'meerut'),
-	(908, 'Shweta', 'Gupta', 'female', 'gurgaon'),
-	(909, 'Rajesh', 'Chauhan', 'male', 'noida'),
-	(911, 'Andrew', 'Symonds', 'male', 'delhi');
+insert into user values  (906, 'Ankush', 'Thakur', 'male', 'gurgaon'),
+ (907, 'Anamika', 'Singh', 'female', 'meerut'),
+ (908, 'Shweta', 'Gupta', 'female', 'gurgaon'),
+ (909, 'Rajesh', 'Chauhan', 'male', 'noida'),
+ (911, 'Andrew', 'Symonds', 'male', 'delhi');
  
  select * from user;
+ 
+ use mysql;
+ select * from user;
+
+CREATE USER 'meltsan'@'localhost' IDENTIFIED BY 'toor';

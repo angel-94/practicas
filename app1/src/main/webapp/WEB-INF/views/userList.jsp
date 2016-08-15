@@ -34,8 +34,6 @@ td {
 	<center>
 		<br /> <br /> <br /> <b>User List | Being Java Guys </b><br /> <br />
 
-
-
 		<table border="1">
 			<tr>
 				<td class="heading">User Id</td>
