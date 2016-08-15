@@ -7,6 +7,9 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 	
+	<beans:bean id="userDao" class="com.unsis.clinic.dao.UserDaoImpl"></beans:bean>
+	<beans:bean id="userService" class="com.unsis.clinic.service.UserServiceImpl"></beans:bean>
+	
 	<beans:bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 	<!-- 
 		<beans:property name="driverClassName" value="${jdbc.driverClassName}"></beans:property>
@@ -24,5 +27,7 @@
 	<!-- 
 		<context:property-placeholder location="jdbc.properties"/>
  	-->
+ 	<context:component-scan base-package="com.unsis.clinic.dao" />
+ 	<context:component-scan base-package="com.unsis.clinic.service" />
 
 </beans:beans>

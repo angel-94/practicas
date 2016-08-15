@@ -9,7 +9,8 @@ create table user(
     primary key(user_id)
 );
 
-insert into user values  (906, 'Ankush', 'Thakur', 'male', 'gurgaon'),
+insert into user values  
+ (906, 'Ankush', 'Thakur', 'male', 'gurgaon'),
  (907, 'Anamika', 'Singh', 'female', 'meerut'),
  (908, 'Shweta', 'Gupta', 'female', 'gurgaon'),
  (909, 'Rajesh', 'Chauhan', 'male', 'noida'),
