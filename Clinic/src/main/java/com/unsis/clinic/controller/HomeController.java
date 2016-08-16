@@ -39,23 +39,20 @@ public class HomeController {
 	}
 	
 	@RequestMapping(value = "login", method = RequestMethod.POST)
-	public ModelAndView loginUser(HttpServletRequest request, HttpServletResponse response, @ModelAttribute("loginBean")User loginBean) {
+	public ModelAndView loginUser() {
 		logger.info("en el metodo del login en el homeController con post");
 		
 		/*if (user != null){
 			logger.info("nombre en el homeController: ", user.getUserName());
 			userService.getLogin(user);
 		}*/
-		logger.debug("name : ", loginBean.getUserName());
-		
+		//Aquí validaremos los datos del usuario y crearemos su sesión.
 		ModelAndView model= null;
 
 		model = new ModelAndView("login");
 
 //		logger.info("nombre de usaurio en el controller: ", userName);
 		
-		
-
 		return model;
 	}
 	

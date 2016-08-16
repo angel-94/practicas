@@ -29,7 +29,7 @@ public class UserDaoImpl implements UserDao {
 	@Override
 	public void insertUser(User user) {
 		System.out.println(dataSource);
-		String query = "INSERT INTO USER (UserName, Password, StatusSession) VALUES(?, ?, ?, ?);";
+		String query = "INSERT INTO USER (IdentityCard, UserName, Password, StatusSession) VALUES(?, ?, ?, ?, ?);";
 		jdbcTemplate.update(query, user.getUserName(), user.getPassword(), user.getStatusSession());
 		logger.info("Datos insertados exitosamente :: metodo insertUser en el DAO");
 	}

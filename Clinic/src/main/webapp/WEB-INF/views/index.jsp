@@ -5,10 +5,13 @@
 
 <html>
 <head>
+
 <spring:url value="/resources/bower_components/bootstrap/dist/css/bootstrap.css" var="bootstrapCss" />
 <!-- <spring:url value="/resources/bower_components/jquery/dist/jquery.js" var="jQueryJs" /> -->
+
 <link href="${bootstrapCss}" rel="stylesheet" />
 <!-- <script src="${jQueryJs}"></script> -->
+
 <title>Home</title>
 </head>
 <body>
@@ -60,17 +63,6 @@
 						</div>
 						<button type="submit" class="btn btn-success">Submit</button>
 					</form>
-
-					<form:form id="loginForm" method="post" action="login" modelAttribute="loginBean">
-
-						<form:label path="username">Enter your user-name</form:label>
-						<form:input id="username" name="username" path="username" />
-						<br>
-						<form:label path="username">Please enter your password</form:label>
-						<form:password id="password" name="password" path="password" />
-						<br>
-						<input type="submit" value="Submit" />
-					</form:form>
 
 				</div>
 			</div>

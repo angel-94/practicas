@@ -2,6 +2,7 @@ package com.unsis.clinic.model;
 
 public class User {
 	private int userId;
+	private int identityCard;
 	private String userName;
 	private String password;
 	private char statusSession;
@@ -10,9 +11,10 @@ public class User {
 		super();
 	}
 
-	public User(int userId, String userName, String password, char statusSession) {
+	public User(int userId, int identityCard, String userName, String password, char statusSession) {
 		super();
 		this.userId = userId;
+		this.identityCard = identityCard;
 		this.userName = userName;
 		this.password = password;
 		this.statusSession = statusSession;
@@ -24,6 +26,14 @@ public class User {
 
 	public void setUserId(int userId) {
 		this.userId = userId;
+	}
+
+	public int getIdentityCard() {
+		return identityCard;
+	}
+
+	public void setIdentityCard(int identityCard) {
+		this.identityCard = identityCard;
 	}
 
 	public String getUserName() {

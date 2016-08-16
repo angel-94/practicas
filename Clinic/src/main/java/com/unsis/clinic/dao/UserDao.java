@@ -7,6 +7,7 @@ import javax.sql.DataSource;
 import com.unsis.clinic.model.User;
 
 public interface UserDao {
+	
 	void setDataSource(DataSource dataSource);
 
 	void insertUser(User user);

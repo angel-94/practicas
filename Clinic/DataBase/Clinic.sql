@@ -22,7 +22,7 @@ CREATE TABLE USERS(
     StatusSession	CHAR(1) NOT NULL,
     PRIMARY KEY(UserId)
 );
-alter table USERS add 
+alter table USERS add
 	foreign key (IdentityCard) references EMPLOYEES (IdentityCard);
 
 CREATE TABLE PRESCRIPTION(
@@ -34,7 +34,6 @@ CREATE TABLE PRESCRIPTION(
     Prescription 	VARCHAR(1000) NOT NULL,
     PRIMARY KEY (PrescriptionId)
 );
-alter table PRESCRIPTION add 
+alter table PRESCRIPTION add
 	foreign key (IdentityCard) references EMPLOYEES (IdentityCard);
-    
     

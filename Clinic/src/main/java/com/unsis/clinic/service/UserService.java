@@ -5,6 +5,7 @@ import java.util.List;
 import com.unsis.clinic.model.User;
 
 public interface UserService {
+	
 	void insertUser(User user);
 
 	List<User> getAllUser();
