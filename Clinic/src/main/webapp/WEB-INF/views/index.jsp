@@ -15,31 +15,29 @@
 <title>Home</title>
 </head>
 <body>
-	<header>
-		
-	</header>
-	<section>
+
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-md-offset-8 col-md-3">
 				
+					
+				
 					<form method="post" action="login">
 						<div class="form-group">
-							<label>Usuario</label>
-							<input type="text" id="userName" class="form-control" placeholder="Usuario o e-mail" />
+							<label>Usuario:</label>
+							<input type="text" id="userName" name="userName" class="form-control" placeholder="Usuario" />
 						</div>
 						<div class="form-group">
-							<label>Contraseña</label>
-							<input type="password" id="password" class="form-control" placeholder="Contraseña" />
+							<label>Contraseña:</label>
+							<input type="password" id="password" name="password" class="form-control" placeholder="Contraseña" />
 						</div>
-						<button type="submit" class="btn btn-success">Submit</button>
+						<div class="form-group ">
+							<button type="submit" class="btn btn-success">Submit</button>
+						</div>
 					</form>
+					
 				</div>
 			</div>
 		</div>
-	</section>
-	<footer>
-		<p>pie de la página principal</p>
-	</footer>
 </body>
 </html>

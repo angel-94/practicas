@@ -11,22 +11,20 @@
 	<beans:bean id="userService" class="com.unsis.clinic.service.UserServiceImpl"></beans:bean>
 	
 	<beans:bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-	<!-- 
 		<beans:property name="driverClassName" value="${jdbc.driverClassName}"></beans:property>
 		<beans:property name="url" value="${jdbc.url}"></beans:property>
 		<beans:property name="username" value="${jdbc.username}"></beans:property>
 		<beans:property name="password" value="${jdbc.password}"></beans:property>
- 	-->
 
-		<beans:property name="driverClassName" value="com.mysql.jdbc.Driver"></beans:property>
-		<beans:property name="url" value="jdbc:mysql://127.0.0.1:3306/test"></beans:property>
-		<beans:property name="username" value="meltsan"></beans:property>
-		<beans:property name="password" value="toor"></beans:property>
-		
+		<!-- <beans:property name="driverClassName" value="com.mysql.jdbc.Driver"></beans:property>
+			<beans:property name="url" value="jdbc:mysql://127.0.0.1:3306/test"></beans:property>
+			<beans:property name="username" value="meltsan"></beans:property>
+			<beans:property name="password" value="toor"></beans:property>
+		-->
 	</beans:bean>
-	<!-- 
-		<context:property-placeholder location="jdbc.properties"/>
- 	-->
+	
+	<context:property-placeholder location="jdbc.properties"/>
+ 	
  	<context:component-scan base-package="com.unsis.clinic.dao" />
  	<context:component-scan base-package="com.unsis.clinic.service" />
 
