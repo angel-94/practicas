@@ -21,7 +21,7 @@ import com.unsis.clinic.service.UserService;
 public class LoginController {
 	
 	@Autowired
-	UserService userService;
+	private UserService userService;
 	
 	private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
 	
@@ -38,10 +38,11 @@ public class LoginController {
 	public ModelAndView loginUser(HttpServletRequest request, HttpServletResponse response) {
 		
 		String name = request.getParameter("userName");
+		String password = request.getParameter("userName");
 		
 		logger.info("nombre de usuario", name);
 		
-		System.out.println(name);
+		userService.getLogin(name, password);
 		
 		logger.info("en el metodo del login en el homeController con post");
 		
