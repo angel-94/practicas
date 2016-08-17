@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.unsis.clinic.model.User;
-import com.unsis.clinic.service.UserService;
+//import com.unsis.clinic.service.UserService;
 
 /**
  * Handles requests for the application home page.
@@ -20,7 +20,7 @@ public class LoginController {
 	private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
 	
 	@Autowired
-	private UserService userService;
+	//private UserService userService;
 	
 	/**
 	 * Simply selects the home view to render by returning its name.

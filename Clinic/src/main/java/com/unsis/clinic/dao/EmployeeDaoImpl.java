@@ -12,18 +12,17 @@ import com.unsis.clinic.model.Employee;
 public class EmployeeDaoImpl implements EmployeeDao {
 	
 	@Autowired
-	private DataSource dataSource;
 	private JdbcTemplate jdbcTemplate;
 	
 	@Override
 	public void setDataSource(DataSource dataSource) {
-		this.dataSource = dataSource;
 		this.jdbcTemplate = new JdbcTemplate(dataSource);
 	}
 
 	@Override
 	public void insertEmployee(Employee employee) {
-		
+		String query = "";
+		jdbcTemplate.update(query);
 	}
 
 	@Override

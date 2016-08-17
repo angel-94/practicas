@@ -1,8 +1,6 @@
 package com.meltsan.controller;
 
-import java.text.DateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
@@ -46,7 +44,7 @@ public class HomeController {
 		cityList.add("Canada");
 		cityList.add("Francia");
 
-		Map<String, List> map = new HashMap<String, List>();
+		Map<String, List<String>> map = new HashMap<String, List<String>>();
 		map.put("genderList", genderList);
 		map.put("cityList", cityList);
 		return new ModelAndView("register", "map", map);

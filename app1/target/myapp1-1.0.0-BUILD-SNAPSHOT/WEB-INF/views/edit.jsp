@@ -1,6 +1,7 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<!DOCTYPE html>
 <html>
 <head>
 <title>Being Java Guys | Spring DI Hello World</title>
@@ -71,7 +72,7 @@ td {
 								<c:forEach items='${map.cityList}' var='cityName'>
 									<c:choose>
 										<c:when test="${cityName eq map.user.city}">
-											<option value="${cityName}" selected="true">${cityName}</option>
+											<option value="${cityName}">${cityName}</option>
 										</c:when>
 										<c:otherwise>
 											<option value="${cityName}">${cityName}</option>

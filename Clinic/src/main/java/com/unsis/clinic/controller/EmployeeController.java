@@ -9,4 +9,11 @@ public class EmployeeController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(EmployeeController.class);
 	
+	/**
+	 * Simply selects the home view to render by returning its name.
+	 */
+	public String Employee445() {
+		logger.info("Bienvenido return index.");
+		return "index";
+	}
 }

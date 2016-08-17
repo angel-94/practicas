@@ -23,14 +23,12 @@ import com.unsis.clinic.model.Prescription;
 public class PrescriptionDaoImpl implements PrescriptionDao {
 
 	@Autowired
-	private DataSource dataSource;
 	private JdbcTemplate jdbcTemplate;
 	
 	private static final Logger logger = LoggerFactory.getLogger(PrescriptionDaoImpl.class);
 
 	@Override
 	public void setDataSource(DataSource dataSource) {
-		this.dataSource = dataSource;
 		this.jdbcTemplate = new JdbcTemplate(dataSource);
 	}
 
