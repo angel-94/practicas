@@ -7,28 +7,27 @@ import javax.sql.DataSource;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
-//import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.unsis.clinic.model.User;
 
-//@Repository
+@Transactional
 public class UserDaoImpl implements UserDao {
-
-	private DataSource dataSource;
+	
 	private JdbcTemplate jdbcTemplate;
 
 	private static final Logger logger = LoggerFactory.getLogger(UserDaoImpl.class);
 	
 	@Override
 	public void setDataSource(DataSource dataSource) {
-		this.dataSource = dataSource;
 		this.jdbcTemplate = new JdbcTemplate(dataSource);
 	}
 
 	@Override
 	public void insertUser(User user) {
-		System.out.println(dataSource);
+		logger.info("En el dao insertUser");
 		String query = "INSERT INTO USER (IdentityCard, UserName, Password, StatusSession) VALUES(?, ?, ?, ?, ?);";
 		jdbcTemplate.update(query, user.getUserName(), user.getPassword(), user.getStatusSession());
 		logger.info("Datos insertados exitosamente :: metodo insertUser en el DAO");
@@ -36,6 +35,7 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public List<User> getAllUser() {
+		logger.info("En el dao getAllUser");
 		List<User> userList = new ArrayList<User>();
 		String query = "SELECT * FROM USERS;";
 		userList = jdbcTemplate.query(query, new UserMapper());
@@ -44,29 +44,36 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public void updateUser(User user) {
+		logger.info("En el dao updateUser");
 		String query = "UPDATE USER SET UserName = ?, Password = ?, StatusSession = ? WHERE UserId = ?;";
-		jdbcTemplate.update(query, user.getUserName(), user.getPassword(), user.getStatusSession(),user.getUserId());
+		jdbcTemplate.update(query, user.getUserName(), user.getPassword(), user.getStatusSession(), user.getUserId());
 	}
 
 	@Override
 	public void deleteUser(int id) {
+		logger.info("En el dao deleteUser");
 		String query = "DELETE FROM USERS WHERE UserId = ?;";
 		jdbcTemplate.update(query, id);
 	}
 
 	@Override
 	public User getUserById(int id) {
+		logger.info("En el dao getUserById");
 		String query = "SELECT * FROM USERS WHERE UserId = ?;";
-		User user = (User) jdbcTemplate.query(query, new Object[]{id}, new UserMapper());
+		User user = jdbcTemplate.queryForObject(query, new Object[]{id}, new UserMapper());
 		return user;
 	}
 
 	@Override
-	public User getLogin(String name, String password) {
+	public User getLogin(String userName, String password) {
+		logger.info("En el dao getLogin");
+		BeanPropertyRowMapper<User> bprm = new BeanPropertyRowMapper<User>(User.class);
 		User userLogin = new User();
-		logger.info("nombre en el dao: ", name);
+		logger.info(userName);
+		logger.info(password);
 		String query = "SELECT * FROM USERS WHERE UserName = ? and Password = ?;";
-		userLogin = (User) jdbcTemplate.query(query, new Object[]{name, password}, new UserMapper());
+		userLogin = jdbcTemplate.queryForObject(query, new Object[]{userName, password}, bprm);
+		logger.info(userLogin.getUserName());
 		return userLogin;
 	}
 	

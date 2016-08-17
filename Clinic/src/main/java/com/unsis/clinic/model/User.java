@@ -1,9 +1,15 @@
 package com.unsis.clinic.model;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 public class User {
+	@Size(min=2, max=30)
 	private int userId;
 	private int identityCard;
+	@NotNull
 	private String userName;
+	@NotNull
 	private String password;
 	private char statusSession;
 

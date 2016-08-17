@@ -20,33 +20,40 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public void insertUser(User user) {
-		logger.info("Inserta usario -- class => UserServiceImpl");
+		logger.info("En el service insertUser");
 		userDao.insertUser(user);
 	}
 
 	@Override
 	public List<User> getAllUser() {
+		logger.info("En el service getAllUser");
 		return userDao.getAllUser();
 	}
 
 	@Override
 	public void updateUser(User user) {
+		logger.info("En el service updateUser");
 		userDao.updateUser(user);
 	}
 
 	@Override
 	public void deleteUser(int id) {
+		logger.info("En el service deleteUser");
 		userDao.deleteUser(id);
 	}
 
 	@Override
 	public User getUserById(int id) {
+		logger.info("En el service getUserById");
 		return userDao.getUserById(id);
 	}
 
 	@Override
-	public User getLogin(String name, String password){
-		return userDao.getLogin(name, password);
+	public User getLogin(String userName, String password){
+		logger.info("En el service getLogin");
+		logger.info(userName);
+		logger.info(password);
+		return userDao.getLogin(userName, password);
 	}
 
 }
