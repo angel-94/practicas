@@ -4,14 +4,12 @@ import java.util.List;
 
 import javax.sql.DataSource;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import com.unsis.clinic.model.Employee;
 
 public class EmployeeDaoImpl implements EmployeeDao {
 	
-	@Autowired
 	private JdbcTemplate jdbcTemplate;
 	
 	@Override

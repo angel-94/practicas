@@ -9,7 +9,6 @@ import javax.sql.DataSource;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import com.unsis.clinic.model.Prescription;
@@ -22,7 +21,6 @@ import com.unsis.clinic.model.Prescription;
  */
 public class PrescriptionDaoImpl implements PrescriptionDao {
 
-	@Autowired
 	private JdbcTemplate jdbcTemplate;
 	
 	private static final Logger logger = LoggerFactory.getLogger(PrescriptionDaoImpl.class);
