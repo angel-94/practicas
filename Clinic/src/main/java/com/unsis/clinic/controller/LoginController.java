@@ -13,18 +13,17 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.unsis.clinic.service.UserService;
 
-
 /**
  * Handles requests for the application home page.
  */
 @Controller
 public class LoginController {
-	
+
 	@Autowired
 	private UserService userService;
-	
+
 	private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
-	
+
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
@@ -33,24 +32,24 @@ public class LoginController {
 		logger.info("Welcome home!}.");
 		return "index";
 	}
-	
+
 	@RequestMapping(value = "login", method = RequestMethod.POST)
 	public ModelAndView loginUser(HttpServletRequest request, HttpServletResponse response) {
-		
+
 		String name = request.getParameter("userName");
 		String password = request.getParameter("userName");
-		
+
 		logger.info("nombre de usuario", name);
-		
+
 		userService.getLogin(name, password);
-		
+
 		logger.info("en el metodo del login en el homeController con post");
-		
-		ModelAndView model= null;
+
+		ModelAndView model = null;
 
 		model = new ModelAndView("login");
-		
+
 		return model;
 	}
-	
+
 }

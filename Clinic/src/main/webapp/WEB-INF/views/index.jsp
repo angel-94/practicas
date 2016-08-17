@@ -20,8 +20,6 @@
 			<div class="row">
 				<div class="col-md-offset-8 col-md-3">
 				
-					
-				
 					<form method="post" action="login">
 						<div class="form-group">
 							<label>Usuario:</label>
