@@ -47,9 +47,7 @@ public class LoginController {
 		if(userName != null && password != null){
 			user = userService.getLogin(userName, password);
 			if(user != null){
-				if(user.getRoleUser().equals("Administrador")){
-					pag = "menu";
-				}
+				pag = "menu";
 			}
 		}
 		logger.info(userName);
