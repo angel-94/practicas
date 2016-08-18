@@ -6,7 +6,6 @@ public class Employee {
 	private String lastName1;
 	private String lastName2;
 	private String institution;
-	private String roleEmploye;
 	private char status;
 
 	public Employee() {
@@ -14,14 +13,13 @@ public class Employee {
 	}
 
 	public Employee(int identityCard, String firstName, String lastName1, String lastName2, String institution,
-			String roleEmploye, char status) {
+			char status) {
 		super();
 		this.identityCard = identityCard;
 		this.firstName = firstName;
 		this.lastName1 = lastName1;
 		this.lastName2 = lastName2;
 		this.institution = institution;
-		this.roleEmploye = roleEmploye;
 		this.status = status;
 	}
 
@@ -63,14 +61,6 @@ public class Employee {
 
 	public void setInstitution(String institution) {
 		this.institution = institution;
-	}
-
-	public String getRoleEmploye() {
-		return roleEmploye;
-	}
-
-	public void setRoleEmploye(String roleEmploye) {
-		this.roleEmploye = roleEmploye;
 	}
 
 	public char getStatus() {

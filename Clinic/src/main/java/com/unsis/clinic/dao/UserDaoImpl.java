@@ -7,20 +7,17 @@ import javax.sql.DataSource;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.unsis.clinic.model.User;
 
-@Transactional
 public class UserDaoImpl implements UserDao {
 	
 	private JdbcTemplate jdbcTemplate;
-
 	private static final Logger logger = LoggerFactory.getLogger(UserDaoImpl.class);
 	
-	@Override
+	@Autowired
 	public void setDataSource(DataSource dataSource) {
 		this.jdbcTemplate = new JdbcTemplate(dataSource);
 	}
@@ -28,7 +25,7 @@ public class UserDaoImpl implements UserDao {
 	@Override
 	public void insertUser(User user) {
 		logger.info("En el dao insertUser");
-		String query = "INSERT INTO USER (IdentityCard, UserName, Password, StatusSession) VALUES(?, ?, ?, ?, ?);";
+		String query = "INSERT INTO USER (IdentityCard, UserName, Password, RoleUser, StatusSession) VALUES(?, ?, ?, ?, ?, ?);";
 		jdbcTemplate.update(query, user.getUserName(), user.getPassword(), user.getStatusSession());
 		logger.info("Datos insertados exitosamente :: metodo insertUser en el DAO");
 	}
@@ -39,14 +36,15 @@ public class UserDaoImpl implements UserDao {
 		List<User> userList = new ArrayList<User>();
 		String query = "SELECT * FROM USERS;";
 		userList = jdbcTemplate.query(query, new UserMapper());
+		logger.info("Realizo bien la consulta");
 		return userList;
 	}
 
 	@Override
 	public void updateUser(User user) {
 		logger.info("En el dao updateUser");
-		String query = "UPDATE USER SET UserName = ?, Password = ?, StatusSession = ? WHERE UserId = ?;";
-		jdbcTemplate.update(query, user.getUserName(), user.getPassword(), user.getStatusSession(), user.getUserId());
+		String query = "UPDATE USER SET UserName = ?, Password = ?, RoleUser = ?, StatusSession = ? WHERE UserId = ?;";
+		jdbcTemplate.update(query, user.getUserName(), user.getPassword(), user.getRoleUser(), user.getStatusSession(), user.getUserId());
 	}
 
 	@Override
@@ -67,13 +65,10 @@ public class UserDaoImpl implements UserDao {
 	@Override
 	public User getLogin(String userName, String password) {
 		logger.info("En el dao getLogin");
-		BeanPropertyRowMapper<User> bprm = new BeanPropertyRowMapper<User>(User.class);
 		User userLogin = new User();
-		logger.info(userName);
-		logger.info(password);
+//		List<User> userList = new ArrayList<User>();
 		String query = "SELECT * FROM USERS WHERE UserName = ? and Password = ?;";
-		userLogin = jdbcTemplate.queryForObject(query, new Object[]{userName, password}, bprm);
-		logger.info(userLogin.getUserName());
+		userLogin = (User) jdbcTemplate.queryForObject(query, new Object[]{userName, password}, new UserMapper());
 		return userLogin;
 	}
 	
