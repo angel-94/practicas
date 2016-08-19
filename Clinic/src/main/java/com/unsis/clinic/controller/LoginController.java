@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+//import org.springframework.web.servlet.ModelAndView;
 
 import com.unsis.clinic.model.User;
 import com.unsis.clinic.service.UserService;
@@ -43,15 +44,15 @@ public class LoginController {
 		logger.info(userName);
 		logger.info(password);
 		String pag = null;
+//		ModelAndView modelAndView = new ModelAndView("login");
 		User user = new User();
 		if(userName != null && password != null){
 			user = userService.getLogin(userName, password);
 			if(user != null){
 				pag = "menu";
+//				return modelAndView.addObject("carList", userService.getUserById(user.getUserId()));
 			}
 		}
-		logger.info(userName);
-		logger.info(password);
 		return pag;
 	}
 
